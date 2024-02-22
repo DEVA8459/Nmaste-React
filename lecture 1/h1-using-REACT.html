@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h using REACT</title>
+  </head>
+  <body>
+    <!-- injecting react into your ,no need to do npm .reacct and that lawda lasun ,
+        but now that i check its no longer available ,or at leas they are not updated phir bhi chala lenge koi nahi-->
+    <!-- just go to cdn -->
+    <div id="root">
+      <h1>kuch glati kiye ho react me ,isiliye hum nhi aa rahe hai</h1>
+      <!-- THIS H1 TAG IS GOING TO REPLACE BY REACT -->
+    </div>
+  
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script>
+    //createElement lets you create a React element. It serves as an alternative to writing JSX.
+    const heading = React.createElement("h1", {}, "Namaste Everyone!");
+    //{} here is used to passin id over here just like we usedd to do in html <h1 id ="title">deva</h1>
+    //{}  these are props we can pass anything into it like style id etc etc
+    
+
+    //whTEVER WE WRITETE INSIDE REACT ROOT (see div with id root)IN HTML WILL GET REPLLACE BY REACT 
+    //just try   to reffresh the page for a blink it shows h1 html ka massage 
+    //if we failed to launch react or made any mistake it will automaticaallay shows the html ka msg ex replace root by anything and see magic 
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    //passing the react element inside the root
+    root.render(heading);
+    
+    // why react was builds
+    //ract was initialy build so tha t we can work on html and css just inside javascript
+  </script>
+  </body>
+</html>

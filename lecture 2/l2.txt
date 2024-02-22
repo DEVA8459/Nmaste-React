@@ -1,0 +1,62 @@
+to start/ignite our app
+
+we need the BUNDLERS -- parcel ,webpack,vite ,
+create react app uses the webpack 
+but here we are not going to use the webpack we .we are using a parcel we caan use any one of 
+bundlers -In software development, a bundler is a tool used to bundle together various assets and dependencies of a web application into a single file or set of files that can be efficiently served to clients. Bundlers are commonly used in modern web development workflows to manage and optimize the distribution of JavaScript, CSS, images, fonts, and other resources.
+
+parcel is package so we need to use package manger to initialise it 
+**so here we are using npm-as per npm oficial website npm not standd for node package managr they evn start trolling us on website
+
+so how to initialise 
+terminal --  npm init -y  //thid will skip lots of option but phir hum sikhenge kaise so
+
+terminal --  npm init it will ask you lot of question 
+
+ans
+        This utility will walk you through creating a package.json file. 
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields 
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and      
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (namaste-react)
+version: (1.0.0)
+description: this is a recorded lecture
+entry point: (index.js)
+test command: jest 
+git repository: https://github.com/DEVA8459/namaste-react.git
+keywords:
+author: DEVENDRA GOUR
+license: (ISC)
+About to write to D:\my coding hustle\React\namaste react\package.json:
+
+Is this OK? (yes)
+PS D:\my coding hustle\React\namaste react>
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+why we need npm 
+------=> because our react app is powerde by a lot of things(packages),like minify it ,bundle thing up ,remove consolelog ,optimise app for such thing s we need lots of helper packages ,those packages comes inside npm
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+to ignite app 
+to configure parcel into app
+*npm install -D parcel //-D use to install it on devloper machine if we dont write it it will for production
+*-D = dev dependency
+* 
+if throws error(nvm gyp etc)
+then your node and npm version are align 
+so just uninstall node and then 
+to unistal npm open cmd and type  npm uninstall npm -g
+Or, if that fails,
+ make uninstall  
+
+ and then install older version of node js 
+
+
+
