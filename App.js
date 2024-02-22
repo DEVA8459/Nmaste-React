@@ -57,7 +57,6 @@ const RestaurentCard = () => {
     <h1>Burger king</h1>
     <h2>Burgers ,American</h2>
     <h3>4.2 stars</h3>
-    <h3>4.2 stars</h3>
   </div>
   );
 };
