@@ -19,14 +19,48 @@
   
 }
 .card {
-    width: 200px;
-    border:1px solid black;
+        
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
     padding: 10px;
     margin: 10px;
-    
-
+    cursor: pointer;
+    overflow: hidden;
 }
 .card > img{
-    width:100%
+    width: 400px;
+    /* aspect-ratio: 1/1; */
+    height: 350px;
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
 
+.RL{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center
+}
+.card > span{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card > span > h4{
+    text-align: center;
+}
+
+.card > span > h4:first-child{
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 176, 1);
+    border-radius: 5px;
+    padding: 0 5px 0;
+    color: white;
+}
+
+.card > span > h4:first-child .fa-star{
+    font-size: small;
+    padding: 0 5px 3px 0;
 }
