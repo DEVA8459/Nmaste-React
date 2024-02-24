@@ -1,54 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+//name import - when we want export more than one component
+import {HeaderComponent} from "./component/header";
+//how to default import 
+//import HeaderComponent from "./component/header";
 
-//do planning before writting code
-/**
- * planning
- * header
- *    -logo
- *    -nav Item(right Side)
- *    -cart
- * Body
- *    -Search bar
- *    -Restaurent List
- *    -   restaurent card
- *            -image
- *            -name
- *            -Rating
- *            -Cusines
- *     -footer
- *        -links
- *        -copyright
- *
- *  *
- */
-
-const Title = () => (
-  <a href="/">
-    <img
-      className="logo"
-      alt="logo"
-      src="https://logosandtypes.com/wp-content/uploads/2021/01/Swiggy.png"
-    ></img>
-  </a>
-);
-
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About-Us</li>
-          <li>Contact-Us</li>
-          <li>Offer</li>
-          <li>cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+//-----------------------------------
 //config driven ui
 //data api from website
 const ResaturentList = [
@@ -534,3 +491,25 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // passing react element inside root
 root.render(<AppLayout />);
 //khana_Mcangwale
+
+//do planning before writting code
+/**
+ * planning
+ * header
+ *    -logo
+ *    -nav Item(right Side)
+ *    -cart
+ * Body
+ *    -Search bar
+ *    -Restaurent List
+ *    -   restaurent card
+ *            -image
+ *            -name
+ *            -Rating
+ *            -Cusines
+ *     -footer
+ *        -links
+ *        -copyright
+ *
+ *  *
+ */
