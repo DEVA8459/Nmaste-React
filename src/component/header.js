@@ -7,8 +7,12 @@ import Title from "./Title";
 //exporting name export
 export const HeaderComponent = () => {
     return (
+      <>
+      
       <div className="header">
+        
         <Title/>
+        
         <div className="nav-items">
           <ul>
             <li>Home</li>
@@ -19,6 +23,7 @@ export const HeaderComponent = () => {
           </ul>
         </div>
       </div>
+      </>
     );
   };
 

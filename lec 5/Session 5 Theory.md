@@ -59,7 +59,7 @@ Now we can use them in JSX as:
 <MainComponents.MyComponent2 />
 <MainComponents.MyComponent3 />
 ```
-We can use `Named export` and `Default export` together. So you should export like:
+We can use  `Named export` and `Default export` together. So you should export like:
 ```
 export const MyComponent2 = () => {}
 const MyComponent = () => {}
@@ -101,7 +101,8 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 
 ## Q: Why do we need `useState Hook`?
 A: `useState hook` is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component.
-The  useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries.  UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
+The  useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries. 
+ UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
 #### Syntax for useState hook
 ```
 const [state, setState] = useState(initialstate);
@@ -117,3 +118,39 @@ const Example = (props) => {
   return <div />;
 }
 ```
+
+##
+a:when we create variable using state reacct is watching whAT VARIABLE WE CREATED
+```
+how to create variable in react state
+
+import React, { useState } from 'react';
+
+function MyComponent() {
+  // useState hook with initial state of 0
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      {/* Button to increment count */}
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
+``` 
+import { useState } from "react";
+
+const Body = () => {
+    const [searchbtn ,setSearchbtn] = useState("initial state")
+  return (
+   
+        <h1>{searchbtn}</h1>
+        <button className="restaurant-list" onClick = {(e) => {
+          setSearchbtn("button dabane ke baad ki state")
+        }}>search</button>)}
+```
+when an event click button happen it just reconiliate that particular componet and cahnge the value using diff algo and virtual dom so it can be fast 
