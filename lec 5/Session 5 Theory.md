@@ -103,6 +103,8 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 A: `useState hook` is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component.
 The  useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries. 
  UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
+
+ in layman language  -- use state is use to constantly update the state of the variable , because normal variable like const or var cannot update the state of the variable in react 
 #### Syntax for useState hook
 ```
 const [state, setState] = useState(initialstate);
@@ -144,6 +146,8 @@ export default MyComponent;
 ``` 
 import { useState } from "react";
 
+// declaring the state variable
+
 const Body = () => {
     const [searchbtn ,setSearchbtn] = useState("initial state")
   return (
@@ -153,4 +157,4 @@ const Body = () => {
           setSearchbtn("button dabane ke baad ki state")
         }}>search</button>)}
 ```
-when an event click button happen it just reconiliate that particular componet and cahnge the value using diff algo and virtual dom so it can be fast 
+when an event click button happen it just reconiliate that particular componet  here h1 and cahnge the value using diff algo and virtual dom so it can be fast 
