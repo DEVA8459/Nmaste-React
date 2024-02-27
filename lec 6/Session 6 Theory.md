@@ -1,6 +1,63 @@
 ## Namaste React Course by Akshay Saini
 # Chapter 06 - Exploring the world
 
+## api calling in react app
+A:two  ways to load site
+1---load => api(took 300ms)=>renderpage(took 200ms)= output comes in 500 ms
+
+2---load => render page (show somthing )=> api(took 300ms)=>update ui with api = output comes fast
+
+2 is efficient 
+so here we use anathor hook that is useeffect
+here in use effect ew use callback function and the depnedency
+```
+ 
+  useEffect(() => { callback
+
+  },[]//dependency)
+
+  ```
+
+ 1. if it is not dependent on anything (if [] is empty )it will just call it once
+2. if dep array [searchText] ==> once after initial render + render everytime i write a single alphabet 
+
+so therefore
+
+```
+  useEffect(() => { //api call
+  },[])
+
+  so that it could be 
+  2---load => render page (show somthing )=> call api (took 300ms)=>update ui with api = output comes fast
+```
+```
+// this is inside body function
+  useEffect(() => {
+    getRestaurants()
+  }, []);
+
+  //to fetch api
+async function getRestaurants(){
+  const data =await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+  ")
+
+  const json = await data.json();
+  console.log (json);
+}
+
+```
+## CORS
+Unhandled Rejection (TypeError): Failed to fetch 
+reason your browse stopping you bc its not posiible to make conversion with swiggy using local host
+
+to solve this we install plugin name cors wa
+what is cors 
+search in for yt for cors by akshay saini 
+
+
+
+
+
 ## Q: What is `Microservice`?
 A: `Microservice` - also known as the microservice architecture - is an architectural and organizational approach to software development where software is composed of small independent services like database, server or a UI of the application, that communicate over well-defined APIs. These services are owned by small, self-contained teams.
 Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features.
