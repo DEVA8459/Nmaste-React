@@ -5,6 +5,11 @@
 import { useState } from "react";
 import Title from "./Title";
 
+const loggedInUser = () => {
+  //
+  return true;
+};
+
 //exporting name export
 export const HeaderComponent = () => {
   const titles = [
@@ -18,6 +23,7 @@ export const HeaderComponent = () => {
     "Refreshment",
   ];
   const [index, setIndex] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <>
@@ -43,6 +49,11 @@ export const HeaderComponent = () => {
             <li>Offer</li>
             <li>cart</li>
           </ul>
+          {isLoggedIn ?  (
+            <button onClick={() => setIsLoggedIn(false)}>logout</button>
+          ) : (
+            <button onClick={() => setIsLoggedIn(true)}>login</button>
+          )}
         </div>
       </div>
     </>

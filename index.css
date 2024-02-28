@@ -21,7 +21,7 @@
 .card {
         
     width: 400px;
-    border-radius: 5px;
+    border-radius: 30px;
     box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
     padding: 10px;
     margin: 10px;
@@ -32,7 +32,7 @@
     width: 400px;
     /* aspect-ratio: 1/1; */
     height: 350px;
-    border-radius: 10px;
+    border-radius: 30px;
     /* overflow: hidden; */
 }
 
