@@ -26,7 +26,7 @@ The name `React` was chosen because the library was designed to allow developers
 A: The `crossorigin` attribute sets the mode of the request to an HTTP CORS Request. 
 The purpose of crossorigin attribute is used to share the resources from one domain to another domain. Basically, it is used to handle the CORS request. It is used to handle the CORS request that checks whether it is safe to allow for sharing the resources from other domains.
 ### _Syntax_
-```sh
+```
 <script crossorigin="anonymous|use-credentials">
 ```
 
@@ -41,17 +41,30 @@ A: `Development` is the stage of an application before it's made public while `p
 
 
 ## Q: What is `async and defer`?
-A: `Async` - The async attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed as soon` as it is available (do not block HTML DOM construction during downloading process) and don’t wait for anything.
-### _Syntax_
-```sh
-<script src="demo_async.js" async></script>
-```
+A: async and defer are attributes used in HTML to control the loading and execution of external scripts (JavaScript files) in web pages. They are particularly useful for improving page loading performance and managing script execution.
 
-`Defer` - The defer attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed after the page` has finished parsing(when browser finished DOM construction). The `defer attribute` tells the browser `not to wait for the script`. Instead, the browser will continue to process the HTML, build DOM.
-### _Syntax_
-```sh
-<script src="demo_defer.js" defer></script>
+async: When you include the async attribute in a script tag, it tells the browser to download the script file asynchronously while continuing to parse the HTML document. Once the script is downloaded, it will be executed asynchronously, meaning it won't block the parsing of the HTML document or the rendering of the page. Multiple scripts with the async attribute can be downloaded concurrently, but their execution order is not guaranteed
+
 ```
+<script async src="script.js"></script>
+
+````
+defer: The defer attribute, like async, allows the browser to download the script file asynchronously. However, scripts with the defer attribute will be executed only after the HTML document has been fully parsed but before the DOMContentLoaded event is fired. This means that deferred scripts will execute in the order they appear in the document, ensuring that they don't block the rendering of the page but still maintain the order of execution.
+```
+<script defer src="script.js"></script>
+```
+In summary:
+
+Use async if the script can be executed independently and doesn't rely on the DOM structure or other scripts.
+Use defer if you want to ensure that scripts are executed after the HTML document is parsed but before the DOMContentLoaded event, and if the order of execution matters.
+
+## IN SHORT 
+async: Loads the script asynchronously and executes it as soon as it's downloaded. Order of execution isn't guaranteed.
+
+defer: Loads the script asynchronously but waits until the HTML document is fully parsed before executing. Maintains the order of execution.
+
+
+## TYPE MODULE 
 
 Unless you're supporting ancient legacy systems, always add `type="module"` to all your script tags:
 ```sh

@@ -58,14 +58,16 @@ It stores information about your project when parcel builds it, so that when it 
 
 
 ## Q: What is `npx`?
-A: `npx` is a tool that is used to execute the packages. It comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm registry without even installing that package.
+A: `npx` is a tool that is used to execute the packages. It comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that **can execute any package** that you want from the npm registry **without even installing that package.**
 
 
 ## Q: What is difference between `dependencies` vs `devDependencies`?
-A: `Dependencies` should contain library and framework in which your app is built on, needs to function effectively. such as Vue, React, Angular, Express, JQuery and etc. 
-`DevDependencies` should contain modules/packages a developer needs during development.
+A: `Dependencies` should contain **library and framework** in which your app is built on, needs to function effectively. such as Vue, React, Angular, Express, JQuery and etc. 
+
+`DevDependencies` should contain **modules/packages a developer needs during development**.
 such as, `parcel, webpack, vite, mocha`.
 `These packages` are `necessary only while you are developing your project`, not necessary on production.
+
 To save a dependency as a devDependency on installation we need to do, 
 ```
 npm install --save-dev
@@ -82,7 +84,7 @@ In computing, tree shaking is a dead code elimination technique that is applied 
 
 
 ## Q: What is `Hot Module Replacement`?
-A: `Hot Module Replacement (HMR)` exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload.
+A: `Hot Module Replacement (HMR)` exchanges, adds, or removes modules while an application is running, **without a full reload**. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload.
 
 
 ## Q: List down your favorite `5 superpowers of Parcel` and describe any 3 of them in your own words.
@@ -127,7 +129,7 @@ node_modules
 ## Q: What is the difference between `package.json` and `package-lock.json`?
 A: `package.json`:
 * This file is mandatory for every project
-* It contains basic information about the project
+* It contains **basic information** about the project
 * Application name/version/scripts
 
 `package-lock.json`:

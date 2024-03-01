@@ -2,16 +2,19 @@
 import { useEffect, useState } from "react";
 //import { ResaturentList } from "./config";
 import { RestaurentCard } from "./RestaurentCard";
-import Shimmer from "./shimmer"
+import Shimmer from "./shimmer";
 
 function filterData(searchText, restaurant) {
-  const filterData = restaurant.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-    //.lowercase to make search less sensitive here whole name is converted to lowercase 
+  const filterData = restaurant.filter(
+    (restaurant) =>
+      restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+    //.lowercase to make search less sensitive here whole name is converted to lowercase
   );
 
   return filterData;
 }
+
+
 const Body = () => {
   const [allrestaurant, setAllrestaurant] = useState([]);
 
@@ -45,14 +48,13 @@ const Body = () => {
   //if restaurent  is empty => shimmer ui
   //if restaurent has data => actual data UI
 
-  if (!allrestaurant )return null
-  if (FilteredRestaurent?.length === 0) 
-  return <h1>No Restaurent match your search</h1>
+  if (!allrestaurant) return null;
+  if (FilteredRestaurent?.length === 0)
+    return <h1>No Restaurent match your search</h1>;
 
-  
   return allrestaurant?.length === 0 ? (
     <Shimmer></Shimmer>
-  ):(
+  ) : (
     <>
       <div className="search-conatainer">
         <input
@@ -66,7 +68,7 @@ const Body = () => {
         ></input>
 
         <button
-          className="restaurant-list"
+          className="RL"
           onClick={(e) => {
             //need to filterr the daata
             const data = filterData(searchText, allrestaurant);

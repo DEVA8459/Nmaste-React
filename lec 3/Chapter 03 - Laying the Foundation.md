@@ -191,6 +191,12 @@ const HeaderComponent = () =>{
 };
 
 we can also be skip writing return if we want to be extraa smart or a cool devloper
+ but then we use ()and not {}
+ ```
+const HeaderComponent = () =>(
+  return <h1>Nmaste React functional component </h1>;
+);
+ ```
 
 
 //to render react element 
