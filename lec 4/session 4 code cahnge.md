@@ -132,7 +132,16 @@ const Body = () => {
     </div>
   );
 };
+//In this line, the RestaurentCard component is being used, and the restaurent prop is assigned the value of ResaturentList[0].
+we can take any string to assign value to ResaturentList[0]
+This means that the first item in the ResaturentList array is passed as a prop named restaurent to the RestaurentCard component.
 ```
+## props
+A:In React, "props" is short for "properties". It's a special keyword in React which stands for properties and is used to pass data from one component to another. Props are read-only and are immutable.
+
+In the context of the provided code, props is an object that contains properties passed to a React component. These properties can be accessed within the component using dot notation, like props.propertyName.
+so in above code resaturent is used as prop
+
 ## to simply-fy the code we can destructure 
 ```
 const RestaurentCard = ({restaurent}) => {
@@ -187,19 +196,16 @@ const RestaurentCard = ({
   );
 };
 
-//passing props -property
-
+//to make body for all avilable restaurent 
 const Body = () => {
   return (
-    <div className="RL">
-      <RestaurentCard {...ResaturentList[0].info} />
-      <RestaurentCard {...ResaturentList[1].info} />
-      <RestaurentCard {...ResaturentList[2].info} />
-      <RestaurentCard {...ResaturentList[3].info} />
-      <RestaurentCard {...ResaturentList[4].info} />
-      <RestaurentCard {...ResaturentList[5].info} />
-    </div>
-  );
+<div className="RL">
+        {ResaturentList.map((restaurant) => {
+          return (
+            < RestaurentCard {...restaurant.info} key={restaurant.info.id} />
+          );
+        })}
+      </div>);
 };
 
 ```

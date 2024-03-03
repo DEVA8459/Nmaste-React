@@ -19,7 +19,7 @@ here in use effect ew use callback function and the depnedency
   ```
 
  1. if it is not dependent on anything (if [] is empty )it will just call it once
-2. if dep array [searchText] ==> once after initial render + render everytime i write a single alphabet 
+2. if dependent  array [searchText] ==> call ==>once after initial render + render everytime i write a single alphabet 
 
 so therefore
 
