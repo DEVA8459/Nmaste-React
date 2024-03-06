@@ -4,6 +4,7 @@
 //this how we import default export
 import { useState } from "react";
 import Title from "./Title";
+import { About } from "./About";
 
 const loggedInUser = () => {
   //

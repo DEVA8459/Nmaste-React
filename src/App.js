@@ -6,6 +6,9 @@ import {HeaderComponent} from "./component/header";
 //import HeaderComponent from "./component/header";
 import Body from "./component/Body";
 import Footer from "./component/footer";
+import { createBrowserRouter } from "react-router-dom";
+
+
 
 //React.Fragmnet
 const AppLayout = () => {
@@ -17,6 +20,17 @@ const AppLayout = () => {
     </>
   );
 };
+
+const appRouter = createBrowserRouter([
+  {
+    path:"/",
+    elelment: <AppLayout/>  
+  }
+  {
+    path:"/about",
+    elelment: <About/>  
+  }
+])
 // create root using createRoot
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // passing react element inside root

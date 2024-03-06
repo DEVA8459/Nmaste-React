@@ -51,8 +51,8 @@ const Body = () => {
   }
 
   if (!allrestaurant) return null;
-  if (FilteredRestaurent?.length === 0)
-    return <h1>No Restaurent match your search</h1>;
+  // if (FilteredRestaurent?.length === 0)
+  //   return <h1>No Restaurent match your search</h1>;
 
   return allrestaurant?.length === 0 ? (
     <Shimmer/>
@@ -61,16 +61,15 @@ const Body = () => {
       <div className="search-conatainer">
         <input
           type="text"
-          className="searchInput"
+          className="search-input"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         ></input> 
-
         <button
-          className="RL"
+          className="search-button"
           onClick={(e) => {
             //need to filterr the daata
             const data = filterData(searchText, allrestaurant);
