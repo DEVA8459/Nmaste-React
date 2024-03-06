@@ -21,6 +21,7 @@ const Body = () => {
   const [FilteredRestaurent, setFilteredRestaurent] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+  
   // this is inside body function
   useEffect(() => {
     getRestaurants();
@@ -37,23 +38,24 @@ const Body = () => {
     //console.log(json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants);
 
     //optional chaining
+
+    //initially it renders all restaurent 
     setAllrestaurant(
       json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants
     );
+
+    //after we search something it goint to rnder this 
     setFilteredRestaurent(
       json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants
     );
   }
-  //conditional rendering
-  //if restaurent  is empty => shimmer ui
-  //if restaurent has data => actual data UI
 
   if (!allrestaurant) return null;
   if (FilteredRestaurent?.length === 0)
     return <h1>No Restaurent match your search</h1>;
 
   return allrestaurant?.length === 0 ? (
-    <Shimmer></Shimmer>
+    <Shimmer/>
   ) : (
     <>
       <div className="search-conatainer">
@@ -65,7 +67,7 @@ const Body = () => {
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
-        ></input>
+        ></input> 
 
         <button
           className="RL"

@@ -2,34 +2,64 @@
 # Chapter 06 - Exploring the world
 
 ## api calling in react app
+if we call api directly in react inside body it will renrender everything for some small change 
 A:two  ways to load site
-1---load => api(took 300ms)=>renderpage(took 200ms)= output comes in 500 ms
 
-2---load => render page (show somthing )=> api(took 300ms)=>update ui with api = output comes fast
+1---user load the page => api(took 300ms)=>renderpage(took 200ms)= output comes in 500 ms
 
-2 is efficient 
+2---user load the page => render page (show somthing )=> api(took 300ms)=>update ui with api = output comes fast
+
+2 is efficient  
+
 so here we use anathor hook that is useeffect
-here in use effect ew use callback function and the depnedency
-```
+here in use effect we use callback function and the depnedency so that its not going to immidietly get call  but get call when we needded ,its areact that make sure it will gwt call at specific time
+
+* so when a component rerenders --it re renders when a prop changes or state changes 
+* side note **prop**
+    * props are properties
+    * so here  ...restaurent.info is a prop
+    *   ```
+      <div className="RL">
+        {FilteredRestaurent.map((restaurant) => {
+          return (
+            <RestaurentCard {...restaurant.info} key={restaurant.info.id} />
+              );
+            })}
+          </
+      div>
+      ```
+
+  ```
  
   useEffect(() => { callback
 
-  },[]//dependency)
+  },[]//dependency array)
 
   ```
-
- 1. if it is not dependent on anything (if [] is empty )it will just call it once
-2. if dependent  array [searchText] ==> call ==>once after initial render + render everytime i write a single alphabet 
+0. so if we dont want to call it after every rerender so  we pass depndency array through it
+1. here if we dont write [] (event the empty one ) it will be called after each render  
+1. if it is not dependent on anything (if [] is empty )it will just call it just  once
+2. if dependent  array [searchText] ==> call ==>once after initial render + render everytime i write a single alphabet in search text
 
 so therefore
 
 ```
+just to play with it 
+
+   useEffect (() => {
+    console.log ("call this when dependencty is changed")
+   },[])
+
+  so lets make api call inside useeffect
   useEffect(() => { //api call
   },[])
 
   so that it could be 
-  2---load => render page (show somthing )=> call api (took 300ms)=>update ui with api = output comes fast
+  2---load => render page (show somthing )=> call api (took 300ms)=>update ui with api = output comes fast 
+
+
 ```
+*  so we going to call api inside empty dependency array
 ```
 // this is inside body function
   useEffect(() => {
@@ -37,6 +67,7 @@ so therefore
   }, []);
 
   //to fetch api
+
 async function getRestaurants(){
   const data =await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
   ")
@@ -44,6 +75,8 @@ async function getRestaurants(){
   const json = await data.json();
   console.log (json);
 }
+
+but it cannot call swigy api url unless we use cors 
 
 ```
 ## CORS
@@ -54,14 +87,111 @@ to solve this we install plugin name cors wa
 what is cors 
 search in for yt for cors by akshay saini 
 
+## to insert swiggy api in our ui 
+* so now we dont need restaurent list we are going to put json data into restaurent ,but we wont delete restaurentlist (initial value),so that it initialy it renders the given data and then after use effect called it renders the live data from swiggy api by putting json data into setRestaurnt() variable 
 
+```
+  async function getRestaurent () {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
+    const json =await data.json();
+    //optional chaining
+    setRestaurant(
+      //writing path of our data
+      json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants
+    );
+   } 
+```
+## final code
+```
+import { ResaturentList } from "./config";
+import { RestaurentCard } from "./RestaurentCard";
+import { useEffect, useState } from "react";
+import Shimmer from "./Nav-Bar/Shimmer";
 
+function filterData(searchText, allrestaurant) {
+  const filterData = allrestaurant.filter((restaurant)=> restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()));
+  return filterData }
 
+export const Body = () => {
+ 
+  const [allrestaurant, setAllRestaurant] = useState([]); 
+  const [filteredrestaurant, setFilteredrestaurant] = useState([]); 
+  const [searchText, setSearchText] = useState("");
+
+  //use effect
+   useEffect (() => {
+    getRestaurent()
+   },[])
+
+   //writing a function for api 
+
+   async function getRestaurent () {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+
+    const json =await data.json();
+    //optional chaining
+    setAllRestaurant(
+      //writing path of our data
+      json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants
+    );
+    console.log(json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants)
+    setFilteredrestaurant(
+      //writing path of our data
+      json?.data?.cards[4]?.card.card.gridElements.infoWithStyle.restaurants
+    );
+   } 
+
+   if (!allrestaurant) return null;
+   console.log(allrestaurant)
+   if (allrestaurant?.length === 0)
+     return <Shimmer></Shimmer>
+ 
+   return filteredrestaurant?.length === 0 ? (
+     <h1>No Restaurent match your search</h1>
+   ) :(
+    <>
+      <div>
+        <input
+          type="text"
+          className="searchInput"
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        ></input>
+        <button
+          className="search-btn"
+          onClick={() => {
+            const data = filterData(searchText, allrestaurant);
+            setFilteredrestaurant(data);
+          }}
+        >
+          Search
+        </button>
+      </div>
+
+      <div>
+        <div className="RL">
+          {filteredrestaurant.map((restaurant) => {
+            return (
+              <RestaurentCard {...restaurant.info} key={restaurant.info.id} />
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+};
+
+```
+
+*if we dont want restaurent list to load we can use shimmer ui also 
 ## Q: What is `Microservice`?
-A: `Microservice` - also known as the microservice architecture - is an architectural and organizational approach to software development where software is composed of small independent services like database, server or a UI of the application, that communicate over well-defined APIs. These services are owned by small, self-contained teams.
+A: **`Microservice`** - also known as the microservice architecture - is an architectural and organizational approach to software development where software is composed of small independent services like database, server or a UI of the application, that communicate over well-defined APIs. These services are owned by small, self-contained teams.
 Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features.
-means we are dividing software into small, well-defined modules enables teams to use functions for multiple purposes.
+**means we are dividing software into small, well-defined modules enables teams to use functions for multiple purposes.**
 
 - Benefits of Microservices:
   - Flexible Scaling
@@ -70,8 +200,14 @@ means we are dividing software into small, well-defined modules enables teams to
   - Reusable Code
   - Resilience
 
+
+  **so basically**
+    * Imagine you have a big Lego castle to build. Instead of trying to build it all at once, you split it into smaller pieces, like towers, walls, and gates. Each piece does its own job, but they all work together to make the whole castle.
+
+    * That's kind of like microservices! **Instead of one big program doing everything, you have lots of smaller programs (or services) that each do one thing really well**. They work together like puzzle pieces to make a bigger program.
+
 ## Q: What is `Monolith architecture`?
-A: A `Monolith architecture` is a traditional model of a software program, which is built as a unified unit that is self-contained and independent from other applications. A monolithic architecture is a singular, large computing network with one code base that couples all of the business concerns together. To make a change to this sort of application requires updating the entire stack by accessing the code base and building and deploying an updated version of the service-side interface. This makes updates restrictive and time-consuming.
+A: A `Monolith architecture`(opposite to micro services) is a traditional model of a software program, which is built as a unified unit that is self-contained and independent from other applications. A monolithic architecture is a singular, large computing network with one code base that couples all of the business concerns together. To make a change to this sort of application requires updating the entire stack by accessing the code base and building and deploying an updated version of the service-side interface. This makes updates restrictive and time-consuming.
 means we are not dividing software into small, well-defined modules, we use every services like, database, server or a UI of the application, in one Application file.
 
 ## Q: What is the difference between `Monolith and Microservice`?
