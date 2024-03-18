@@ -7,12 +7,17 @@
     margin: 10 px;
     border :1px solid black;
 }
+.nav-items {
+    Justify-content : space-evenly;   
+}
 .nav-items > ul{
     list-style-type: none;
     display: flex;
+    
 }
 .nav-items > ul>li{
     padding :10px;
+    border: 2px;
 }
 .logo {
     width :100px;

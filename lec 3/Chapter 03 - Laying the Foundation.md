@@ -31,7 +31,7 @@ A:in package.json in script tag add before test
 "start":"parcel index.html",
 "build":"parcel build index.html",
 
-so now we can ignite app through' npm run build' followe by , 'npm start'
+so now we can ignite app through' npm run build' followed by , 'npm start'
 
 ## Q: doese parcel removes console.log
 
@@ -72,16 +72,17 @@ const heading = React.createElement(
 
 ## Q: What is `JSX`?
 
-A: jsx is not a html inside js,this is fancy way of writing html,its a html like syntax,faccebook devlopers built jsx
+A: **jsx is not a html inside js**,this is fancy way of writing html,its a html like syntax,faccebook devlopers built jsx
 JSX stands for JavaScript XML(unofficially named).
-JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement() and/or appendChild() methods.
+JSX allows us to write HTML elements in JavaScript and **place them in the DOM without any createElement() and/or appendChild()** methods.
 JSX makes it easier to write and add HTML in React.
-JSX converts HTML tags into react elements.
+**JSX converts HTML tags into react elements**.
 
 ### Example 1 using JSX:
 
 ```
 const myElement = <h1 id="title" key="h1">I Love JSX!</h1>;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(myElement);
 ```
@@ -90,15 +91,17 @@ root.render(myElement);
 
 ```
 const myElement = React.createElement('h1', {}, 'I do not use JSX!');
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(myElement);
+
 ```
 
 ## Q:Html v/s jsx
 
-A: HTML is the standard markup language for web pages, while JSX is a syntax extension for JavaScript, often used with React to create dynamic and interactive user interfaces. With JSX, developers can write UI components in a more concise and expressive manner, directly within their JavaScript code.
+A: HTML is the standard markup language for web pages, while **JSX is a syntax extension for JavaScript,** often used with React to create dynamic and interactive user interfaces. With JSX, developers can write UI components in a more concise and expressive manner, directly within their JavaScript code.
 
-So, HTML is like following a recipe to make a cake, and JSX is like having pre-made cake mix where you just need to add water and eggs. Both get you a yummy cake, but one is a bit more interactive and fun!
+So, **HTML is like following a recipe to make a cake**, and **JSX is like having pre-made cake mix** where you just need to add water and eggs. Both get you a yummy cake, but one is a bit more interactive and fun!
 
 ## JSX behind the scene
 

@@ -14,8 +14,8 @@ npm init
 
 
 ## Q: What is `Parcel/Webpack`? Why do we need it?
-A: `Parcel/Webpack` is type of a web application bundler used for development and productions purposes or power our application with different type functionalities and features.
-It offers blazing fast performance utilizing multicore processing, and requires zero configuration. Parcel can take any type of file as an entry point, but an HTML or JavaScript file is a good place to start.
+A: `Parcel/Webpack` is type of a **web application bundler** used for development and productions purposes or power our application with different type functionalities and features.
+It **offers blazing fast performance utilizing multicore processing**, and requires zero configuration. Parcel **can take any type of file as an entry point**, but an HTML or JavaScript file is a good place to start.
 Parcel/Webpack are type of bundlers that we use to power our application with different type functionalities and features.
 
 ### Parcel Features:
@@ -53,12 +53,12 @@ npm install -D parcel
     ```
 
 ## Q: What is `.parcel-cache`?
-A: `.parcel-cache` is used by parcel(bundler) to reduce the building time.
+A: `.parcel-cache` is used by parcel(bundler) **to reduce the building time**.
 It stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode.
 
 
 ## Q: What is `npx`?
-A: `npx` is a tool that is used to execute the packages. It comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that **can execute any package** that you want from the npm registry **without even installing that package.**
+A: `npx` is a tool that is used to execute the packages. It comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It **is an npm package runner that** **can execute any package** that you want from the npm registry **without even installing that package.**
 
 
 ## Q: What is difference between `dependencies` vs `devDependencies`?
@@ -80,7 +80,7 @@ npm install --save
 
 ## Q: What is `Tree Shaking`?
 A: `Tree shaking` is process of removing the unwanted code that we do not use while developing the application.
-In computing, tree shaking is a dead code elimination technique that is applied when optimizing code.
+In computing, tree shaking is a **dead code elimination technique** that is applied when optimizing code.
 
 
 ## Q: What is `Hot Module Replacement`?

@@ -1,7 +1,7 @@
 //using RestaaurentList data
 //here acc to our json we use info instead of data -akshay uses data
 
-import { IMG_CDN_URL } from "./config";
+import { IMG_CDN_URL } from "../4.other/config";
 
 export const RestaurentCard = ({
     name,
